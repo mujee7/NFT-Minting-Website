@@ -11,9 +11,7 @@ const WalletModal = () => {
   return (
     <>
       <WalletModalStyleWrapper className="modal_overlay">
-        <div
-          className="mint_modal_box"
-        >
+        <div className="mint_modal_box">
           <div className="mint_modal_content">
             <div className="modal_header">
               <h2>CONNECT WALLET</h2>
@@ -26,14 +24,13 @@ const WalletModal = () => {
                 Please select a wallet to connect for start Minting your NFTs
               </p>
               <div className="wallet_list">
-                <a href="# " onClick={ () => connectWalletHandle() }>
+                <a href="# " onClick={() => connectWalletHandle()}>
                   <img src={metamaskIcon} alt="Meta-mask" />
                   MetaMask
                   <span>
                     <FiChevronRight />
                   </span>
                 </a>
-                
               </div>
               <div className="modal_bottom_text">
                 By connecting your wallet, you agree to our

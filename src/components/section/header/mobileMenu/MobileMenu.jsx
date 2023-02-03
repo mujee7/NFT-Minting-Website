@@ -1,35 +1,45 @@
 import { useState } from "react";
 import { useModal } from "../../../../utils/ModalContext";
-import { FaDiscord, FaTwitter, FaWallet ,FaLinkedinIn,FaUserAstronaut} from "react-icons/fa";
+import {
+  FaTwitter,
+  FaWallet,
+  FaLinkedinIn,
+  FaUserAstronaut,
+} from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
 import Button from "../../../../common/button";
 import logo from "../../../../assets/images/logo.png";
-import openseaIcon from "../../../../assets/images/icon/opensea.svg";
-import Dropdown from 'react-bootstrap/Dropdown';
-import { isMetaMaskInstalled } from '../../../../config';
+
+import Dropdown from "react-bootstrap/Dropdown";
+import { isMetaMaskInstalled } from "../../../../config";
 import MobileMenuStyleWrapper from "./MobileMenu.style";
 import { HashLink } from "react-router-hash-link";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mediumIcon from "../../../../assets/images/icon/med.svg";
 const MobileMenu = ({ mobileMenuhandle }) => {
-  const { walletModalHandle, metamaskModalHandle, account, disconnectWalletFromApp } = useModal();
+  const {
+    walletModalHandle,
+    metamaskModalHandle,
+    account,
+    disconnectWalletFromApp,
+  } = useModal();
   const [isSubmenu, setSubmenu] = useState(false);
-  let nav=useNavigate()
+  let nav = useNavigate();
   const handleSubmenu = () => {
     setSubmenu(!isSubmenu);
   };
 
-  const substr = (str, n) =>{
-    return str.length > n ? str.substr(0, n -1) : str;
-  }
+  const substr = (str, n) => {
+    return str.length > n ? str.substr(0, n - 1) : str;
+  };
 
-  const handleWalletConnect = async () =>{
-    if(!isMetaMaskInstalled()){
+  const handleWalletConnect = async () => {
+    if (!isMetaMaskInstalled()) {
       metamaskModalHandle();
-    }else{
+    } else {
       walletModalHandle();
     }
-  }
+  };
   return (
     <MobileMenuStyleWrapper className="bithu_mobile_menu">
       <div className="bithu_mobile_menu_content">
@@ -46,19 +56,30 @@ const MobileMenu = ({ mobileMenuhandle }) => {
         <div className="bithu_mobile_menu_list">
           <ul>
             <li className="mobile_menu_hide">
-            <HashLink to="/#"><a >Home</a></HashLink>
+              <HashLink to="/#">
+                <a>Home</a>
+              </HashLink>
             </li>
             <li className="mobile_menu_hide">
-            <HashLink to="/#about"> <a >About</a></HashLink>
+              <HashLink to="/#about">
+                {" "}
+                <a>About</a>
+              </HashLink>
             </li>
             <li className="mobile_menu_hide">
-            <HashLink to="#connect"><a  >contact</a></HashLink>
+              <HashLink to="#connect">
+                <a>contact</a>
+              </HashLink>
             </li>
             <li className="mobile_menu_hide">
-            <Link to="/collections"><a >Collections</a></Link>
+              <Link to="/collections">
+                <a>Collections</a>
+              </Link>
             </li>
             <li className="mobile_menu_hide">
-            <Link to="/mint-1"><a >Mint</a></Link>
+              <Link to="/mint-1">
+                <a>Mint</a>
+              </Link>
             </li>
             {/* <li className="submenu mobile_submenu" onClick={handleSubmenu}>
               <a href="# ">Pages +</a>
@@ -87,30 +108,36 @@ const MobileMenu = ({ mobileMenuhandle }) => {
           </ul>
         </div>
         <div className="mobile_menu_social_links">
-          
           <a href="https://twitter.com/mujeeee7" target="_blank">
             <FaTwitter />
           </a>
-          <a href="https://www.linkedin.com/in/muhammad-mujtaba-rehman-851b321a7/" target="_blank">
-          <FaLinkedinIn />
+          <a
+            href="https://www.linkedin.com/in/muhammad-mujtaba-rehman-851b321a7/"
+            target="_blank"
+          >
+            <FaLinkedinIn />
           </a>
           <a href="# ">
             <img src={mediumIcon} alt="bithu social icon" />
           </a>
         </div>
-        { account ?
+        {account ? (
           <Dropdown>
-            <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="connect_btn">
-              { substr(account.toString(), 15) }
+            <Dropdown.Toggle
+              variant="secondary"
+              id="dropdown-basic"
+              className="connect_btn"
+            >
+              {substr(account.toString(), 15)}
             </Dropdown.Toggle>
-      
+
             <Dropdown.Menu>
-            
-              <Dropdown.Item onClick={() => disconnectWalletFromApp() }>Disconnect</Dropdown.Item>
-              
+              <Dropdown.Item onClick={() => disconnectWalletFromApp()}>
+                Disconnect
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          :
+        ) : (
           <Button
             sm
             variant="hovered"
@@ -120,16 +147,20 @@ const MobileMenu = ({ mobileMenuhandle }) => {
             <FaWallet />
             Connect
           </Button>
-
-          }{account?<Button
-                sm
-                variant="mint"
-                className="connect_btn"
-                onClick={() => nav("/Account")}
-              >
-                <FaUserAstronaut />
-                Account
-              </Button>:<></>}
+        )}
+        {account ? (
+          <Button
+            sm
+            variant="mint"
+            className="connect_btn"
+            onClick={() => nav("/Account")}
+          >
+            <FaUserAstronaut />
+            Account
+          </Button>
+        ) : (
+          <></>
+        )}
       </div>
     </MobileMenuStyleWrapper>
   );

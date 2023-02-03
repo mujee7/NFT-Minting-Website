@@ -25,15 +25,15 @@ const CTA = () => {
     particleShape5,
   ];
   return (
-    <CTAStyleWrapper  id="connect">
-      <div className="container" >
+    <CTAStyleWrapper id="connect">
+      <div className="container">
         <SectionTitle
           className="bithu_title_section text-center"
-          title="Connect With Me  " style={{paddingTop:"20%"}}
+          title="Connect With Me  "
+          style={{ paddingTop: "20%" }}
         ></SectionTitle>
         {/* <div className="title-emo">🤙</div> */}
-        <div className="bithu_v1_cta_content " style={{marginTop:"30px"}}>
-          
+        <div className="bithu_v1_cta_content " style={{ marginTop: "30px" }}>
           <div className="cta_social_links">
             <ul>
               {data?.map((item, i) => (

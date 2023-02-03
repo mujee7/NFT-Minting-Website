@@ -3,10 +3,8 @@ import styled from "styled-components";
 const HowToMintWrapper = styled.section`
   margin-top: 113px;
   padding-bottom: 85px;
-
   .how_to_mint_container {
     position: relative;
-
     .how_to_mint_shadow {
       position: absolute;
       top: -370px;
@@ -16,11 +14,9 @@ const HowToMintWrapper = styled.section`
       height: 547px;
       z-index: 0;
     }
-
     .how_to_mint_content {
       position: relative;
       z-index: 1;
-
       ul {
         display: flex;
         align-items: center;
@@ -40,7 +36,6 @@ const HowToMintWrapper = styled.section`
             line-height: 140px;
             text-transform: uppercase;
             color: transparent;
-
             &.green {
               -webkit-text-stroke: 1px rgba(0, 255, 163, 0.7);
             }
@@ -54,7 +49,6 @@ const HowToMintWrapper = styled.section`
               -webkit-text-stroke: 1px rgba(255, 0, 76, 0.7);
             }
           }
-
           p {
             font-family: "Bakbak One";
             font-style: normal;
@@ -71,7 +65,6 @@ const HowToMintWrapper = styled.section`
       }
     }
   }
-
   @media only screen and (max-width: 1199px) {
     .how_to_mint_container {
       .how_to_mint_content {
@@ -86,7 +79,6 @@ const HowToMintWrapper = styled.section`
       }
     }
   }
-
   @media only screen and (max-width: 991px) {
     .how_to_mint_container {
       .how_to_mint_content {
@@ -109,7 +101,6 @@ const HowToMintWrapper = styled.section`
       }
     }
   }
-
   @media only screen and (max-width: 767px) {
     .how_to_mint_container {
       .how_to_mint_content {
@@ -125,7 +116,6 @@ const HowToMintWrapper = styled.section`
       }
     }
   }
-
   @media only screen and (max-width: 480px) {
     .how_to_mint_container {
       .how_to_mint_content {

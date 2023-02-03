@@ -161,12 +161,11 @@ const FooterStyleWrapper = styled.footer`
     }
   }
   @media only screen and (min-width: 991px) {
-    .footerlogohai{
-      width:50%
+    .footerlogohai {
+      width: 50%;
     }
   }
-  
-  
+
   @media only screen and (max-width: 991px) {
     .bithu_v1_main_footer {
       .bottom_footer_left {

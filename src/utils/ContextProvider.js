@@ -8,32 +8,32 @@ import {
   disconnectWallet,
   CreateContract,
   ContractAddress,
-  connectAccount
+  connectAccount,
 } from "../config";
-  
+
 const ContextProvider = ({ children }) => {
   const [visibility, setVisibility] = useState(false);
   const [walletModalvisibility, setModalvisibility] = useState(false);
-  const [NextMint,setNextMint]=useState()
+  const [NextMint, setNextMint] = useState();
   const [shareModalVisibility, setShareModalvisibility] = useState(false);
   const [metamaskModalVisibility, setMetamaskModalVisibility] = useState(false);
   const [connectWalletModal, setConnectWalletModal] = useState(false);
   const [account, setAccount] = useState("");
-  const [NFT,setNFT]=useState();
-  const [NFTID,setNFTID]=useState();
-  const [contractAddress,setContractAddress]=useState();
-  const [WEB3,setWEB3]=useState()
-  const [Contract, setContract]=useState()
-  const [Basic, setBasic]=useState()
-  const [Count,setCount]=useState()
-  
+  const [NFT, setNFT] = useState();
+  const [NFTID, setNFTID] = useState();
+  const [contractAddress, setContractAddress] = useState();
+  const [WEB3, setWEB3] = useState();
+  const [Contract, setContract] = useState();
+  const [Basic, setBasic] = useState();
+  const [Count, setCount] = useState();
+
   const mintModalHandle = () => {
     setVisibility(!visibility);
   };
   const walletModalHandle = () => {
     setModalvisibility(!walletModalvisibility);
   };
-  
+
   const shareModalHandle = (e) => {
     e.preventDefault();
     setShareModalvisibility(!shareModalVisibility);
@@ -62,10 +62,9 @@ const ContextProvider = ({ children }) => {
     if (isWalletConnected()) {
       const accounts = await connectAccount();
       setAccount(accounts);
-    }else {
+    } else {
       const accounts = await connectWallet();
       setAccount(accounts);
-
     }
   };
 
@@ -73,13 +72,11 @@ const ContextProvider = ({ children }) => {
     disconnectWallet();
     setAccount("");
   };
-const CreateContractInstance=async()=>{
-  setContract(CreateContract())
-  setContractAddress(ContractAddress)
-  setBasic(true)
-
-}
- 
+  const CreateContractInstance = async () => {
+    setContract(CreateContract());
+    setContractAddress(ContractAddress);
+    setBasic(true);
+  };
 
   return (
     <ModalContext.Provider
@@ -106,20 +103,15 @@ const CreateContractInstance=async()=>{
         setContractAddress,
         WEB3,
         setWEB3,
-        Contract, 
+        Contract,
         setContract,
         CreateContractInstance,
-        Basic, 
+        Basic,
         setBasic,
         Count,
         setCount,
         NextMint,
-        setNextMint
-        
-
-       
-
-
+        setNextMint,
       }}
     >
       {children}

@@ -22,6 +22,7 @@ const MintPageOne = () => {
         <Footer />
       </Layout>
     </>
+    
   );
 };
 

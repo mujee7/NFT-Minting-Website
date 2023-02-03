@@ -11,8 +11,8 @@ import footerShapesRight from "../../../../assets/images/icon/footer_shapes_righ
 import FooterStyleWrapper from "./Footer.style";
 const Footer = () => {
   return (
-    <FooterStyleWrapper >
-      <CTA  />
+    <FooterStyleWrapper>
+      <CTA />
 
       <div className="bithu_v1_main_footer">
         <div className="bithu_v1_main_footer_overlay"></div>
@@ -32,8 +32,12 @@ const Footer = () => {
               <div className="footer_menu">
                 <div className="bottom_footer_left">
                   <div className="footer_logo">
-                    <a href="# " >
-                      <img src={footerLogo} alt="bithu nft logo " className="footerlogohai" />
+                    <a href="# ">
+                      <img
+                        src={footerLogo}
+                        alt="bithu nft logo "
+                        className="footerlogohai"
+                      />
                     </a>
                   </div>
                   <div className="copiright_text">

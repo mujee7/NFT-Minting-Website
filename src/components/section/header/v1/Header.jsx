@@ -1,40 +1,41 @@
 import { useModal } from "../../../../utils/ModalContext";
 import { useEffect, useState } from "react";
-import { FaDiscord, FaWallet ,FaUserAstronaut} from "react-icons/fa";
+import { FaDiscord, FaWallet, FaUserAstronaut } from "react-icons/fa";
 import { MdNotes } from "react-icons/md";
 import Button from "../../../../common/button";
 import NavWrapper from "./Header.style";
 import MobileMenu from "../mobileMenu/MobileMenu";
 import logo from "../../../../assets/images/nft/cpg/Cyber Punk Girl.png";
-import { isMetaMaskInstalled } from '../../../../config';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { Link,useNavigate} from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
+import { isMetaMaskInstalled } from "../../../../config";
+import Dropdown from "react-bootstrap/Dropdown";
+import { Link, useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 const Header = () => {
-  let nav=useNavigate()
-  
-  const { 
-    walletModalHandle, 
-    metamaskModalHandle, 
-    account, 
-    isWalletAlreadyConnected, 
-    disconnectWalletFromApp } = useModal();
+  let nav = useNavigate();
+
+  const {
+    walletModalHandle,
+    metamaskModalHandle,
+    account,
+    isWalletAlreadyConnected,
+    disconnectWalletFromApp,
+  } = useModal();
   const [isMobileMenu, setMobileMenu] = useState(false);
   const handleMobileMenu = () => {
     setMobileMenu(!isMobileMenu);
   };
 
-  const substr = (str, n) =>{
-    return str.length > n ? str.substr(0, n -1) : str;
-  }
+  const substr = (str, n) => {
+    return str.length > n ? str.substr(0, n - 1) : str;
+  };
 
-  const handleWalletConnect = async () =>{
-    if(!isMetaMaskInstalled()){
+  const handleWalletConnect = async () => {
+    if (!isMetaMaskInstalled()) {
       metamaskModalHandle();
-    }else{
+    } else {
       walletModalHandle();
     }
-  }
+  };
   useEffect(() => {
     const header = document.getElementById("navbar");
     const handleScroll = window.addEventListener("scroll", () => {
@@ -52,7 +53,7 @@ const Header = () => {
 
   useEffect(() => {
     isWalletAlreadyConnected();
-  },[])
+  }, []);
 
   return (
     <NavWrapper className="bithu_header" id="navbar">
@@ -61,34 +62,42 @@ const Header = () => {
         <div className="bithu_menu_sect">
           <div className="bithu_menu_left_sect">
             <div className="logo">
-            <HashLink to="/#"><a href="/">
-                <img src={logo} alt="bithu nft logo" />
-              </a></HashLink>
-              
+              <HashLink to="/#">
+                <a href="/">
+                  <img src={logo} alt="bithu nft logo" />
+                </a>
+              </HashLink>
             </div>
           </div>
           <div className="bithu_menu_right_sect bithu_v1_menu_right_sect">
             <div className="bithu_menu_list">
               <ul>
                 <li>
-                <HashLink to="/#"><a >Home</a></HashLink>
-                  
+                  <HashLink to="/#">
+                    <a>Home</a>
+                  </HashLink>
                 </li>
                 <li>
-                <HashLink to="/#about"> <a >About</a></HashLink>
-                 
+                  <HashLink to="/#about">
+                    {" "}
+                    <a>About</a>
+                  </HashLink>
                 </li>
                 <li>
-                <HashLink to="#connect"><a  >contact</a></HashLink>
-                 
+                  <HashLink to="#connect">
+                    <a>contact</a>
+                  </HashLink>
                 </li>
                 <li>
-                <Link to="/collections"><a >Collections</a></Link>
+                  <Link to="/collections">
+                    <a>Collections</a>
+                  </Link>
                 </li>
-              
+
                 <li>
-                <Link to="/mint-1"><a >Mint</a></Link>
-                  
+                  <Link to="/mint-1">
+                    <a>Mint</a>
+                  </Link>
                 </li>
                 {/* <li className="submenu">
                     <a href="# ">Pages +</a>
@@ -152,39 +161,50 @@ const Header = () => {
               <button className="menu_btn" onClick={() => handleMobileMenu()}>
                 <MdNotes />
               </button>
-              
-              { account ?
-              <Dropdown>
-                <Dropdown.Toggle variant="white" id="dropdown-basic" className="connect_btn">
-                  { substr(account.toString(), 15) }
-                </Dropdown.Toggle>
-          
-                <Dropdown.Menu>
-                <Dropdown.Item  onClick={() => disconnectWalletFromApp() } style={{color:"red"}}>Disconnect</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              :
-              <Button
-                sm
-                variant="hovered"
-                className="connect_btn"
-                onClick={() => handleWalletConnect()}
-              >
-                <FaWallet />
-                Connect
-              </Button>
-              
 
-              }
-              {account?<Button
-                sm
-                variant="hovered"
-                className="connect_btn"
-                onClick={() => nav("/Account")}
-              >
-                <FaUserAstronaut />
-                Account
-              </Button>:<></>}
+              {account ? (
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="white"
+                    id="dropdown-basic"
+                    className="connect_btn"
+                  >
+                    {substr(account.toString(), 15)}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      onClick={() => disconnectWalletFromApp()}
+                      style={{ color: "red" }}
+                    >
+                      Disconnect
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Button
+                  sm
+                  variant="hovered"
+                  className="connect_btn"
+                  onClick={() => handleWalletConnect()}
+                >
+                  <FaWallet />
+                  Connect
+                </Button>
+              )}
+              {account ? (
+                <Button
+                  sm
+                  variant="hovered"
+                  className="connect_btn"
+                  onClick={() => nav("/Account")}
+                >
+                  <FaUserAstronaut />
+                  Account
+                </Button>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

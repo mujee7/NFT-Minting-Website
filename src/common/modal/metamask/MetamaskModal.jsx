@@ -9,9 +9,7 @@ const MetamaskModal = () => {
   return (
     <>
       <MetamaskModalStyle className="modal_overlay">
-        <div
-          className="mint_modal_box"
-        >
+        <div className="mint_modal_box">
           <div className="mint_modal_content">
             <div className="modal_header">
               <h2>METAMASK</h2>
@@ -21,11 +19,15 @@ const MetamaskModal = () => {
             </div>
             <div className="modal_body text-center">
               <div className="wallet_list">
-                <a href="https://metamask.io/download/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://metamask.io/download/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img src={metamaskIcon} alt="Meta-mask" />
                   Please install metamask extension!
                 </a>
-                </div>
+              </div>
             </div>
 
             <div className="modal_bottom_shape_wrap">

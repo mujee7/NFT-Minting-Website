@@ -3,8 +3,8 @@ import { useModal } from "../../../utils/ModalContext";
 import titleShape from "../../../assets/images/icon/home-shape.png";
 import PageHeaderStyleWrapper from "./PageHeader.style";
 const PageHeader1 = () => {
-  const { account} =    useModal();
-  console.log(account)
+  const { account } = useModal();
+  console.log(account);
   return (
     <PageHeaderStyleWrapper>
       <div className="container">
@@ -20,14 +20,14 @@ const PageHeader1 = () => {
                 />
               </div>
               <h2 className="breadcrumb_title text-uppercase">Your Account</h2>
-              <p style={{marginTop:"10px",fontSize:"25px"}}>{account[0]}</p>
+              <p style={{ marginTop: "10px", fontSize: "25px" }}>
+                {account[0]}
+              </p>
             </div>
           </div>
 
           <div className="col-md-7">
-            <div className="breadcrumb_form">
-              
-            </div>
+            <div className="breadcrumb_form"></div>
           </div>
         </div>
       </div>
