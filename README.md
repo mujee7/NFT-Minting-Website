@@ -1,4 +1,4 @@
-## NFT MINTING DAPP
+# NFT MINTING DAPP
 It is an NFT minting dapp that allow you to mint new NFTs as well as manage your NFTs and Transfer Your NFTs to others.
 
 It Includes
@@ -28,9 +28,6 @@ so make sure you use tha same contract'
 ### Deployed on
 
 https://cyberpunkgirl.vercel.app/
-
-### HOW TO RUN THE FILE 
-###................................................................................................................................................................
 
 # Getting Started with Create React App
 
