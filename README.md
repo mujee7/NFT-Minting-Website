@@ -1,4 +1,4 @@
-### NFT MINTING DAPP
+## NFT MINTING DAPP
 It is an NFT minting dapp that allow you to mint new NFTs as well as manage your NFTs and Transfer Your NFTs to others.
 
 It Includes
@@ -15,7 +15,7 @@ It Includes
 For your own deployment just change in the src/config.js file
 value of abi, web3, ContractAddress
 
-## Next chnage the IPFS LINK
+### Next chnage the IPFS LINK
 I imported NFT images from direct IPFS links so change the links in the files
 by Ctrl + Shift + F then type https://gateway it will give you the place where this link is used
 change it with your own IPFS link rember it is using a variable value too
