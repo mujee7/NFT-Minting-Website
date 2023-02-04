@@ -5,17 +5,18 @@ import Button from "../../button";
 import MintModalStyleWrapper from "./MintNow.style";
 
 import hoverShape from "../../../assets/images/icon/hov_shape_L.svg";
-
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { isMetaMaskInstalled } from "../../../config";
 import { useParams } from "react-router-dom";
+import { web3 } from "../../../config";
 const TransferModel = () => {
   const ref = useRef();
   let params = useParams();
   const [message, setMessage] = useState("");
-  const [remaining, setRemaining] = useState(0);
+
   const [transferAddress, setTransferAddress] = useState();
-  const { mintModalHandle } = useModal();
+  const { mintModalHandle, setReload } = useModal();
   const {
     walletModalHandle,
     visibility,
@@ -32,6 +33,7 @@ const TransferModel = () => {
   //   from: account, // must match user's active address.
   //   data: Contract.methods._safeMint(account._address,Count).encodeABI(),
   // };
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   const TransferNFT = async () => {
     console.log(account);
     console.log(Count);
@@ -49,6 +51,37 @@ const TransferModel = () => {
         method: "eth_sendTransaction",
         params: [transactionParameters],
       });
+      if (txHash) {
+        await delay(5000);
+        let pollInterval = 4;
+        let elapsedTime = 0;
+
+        while (elapsedTime < pollInterval) {
+          let receipt;
+          try {
+            receipt = await web3.eth.getTransactionReceipt(txHash);
+          } catch (err) {
+            console.log("error retrieving transaction receipt: " + err);
+          }
+          console.log("Print kr bhai", receipt);
+          if (receipt) {
+            if (receipt.status) {
+              console.log("txHash", txHash);
+              setReload(receipt.status);
+              toast.success("Successfully Transfered");
+              console.log("txHash", receipt.status);
+              return receipt;
+            } else {
+              toast.warning("Transaction reverted");
+              return null;
+            }
+          } else {
+            await delay(5000);
+          }
+          elapsedTime += 2;
+        }
+        console.log("transaction failed");
+      }
     } catch {
       console.log("Eror in sending transactions");
     }

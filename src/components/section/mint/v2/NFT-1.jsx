@@ -16,8 +16,14 @@ const Mint = () => {
   const [product, setProduct] = useState();
   let params = useParams();
   console.log(params.product);
-  const { CreateContractInstance, Contract, Basic, account, mintModalHandle } =
-    useModal();
+  const {
+    CreateContractInstance,
+    Contract,
+    Basic,
+    account,
+    mintModalHandle,
+    reload,
+  } = useModal();
   const [NftOwner, setNftOwner] = useState();
 
   const getNFT = async (value) => {
@@ -64,7 +70,7 @@ const Mint = () => {
   }, []);
   useEffect(() => {
     getNextMint();
-  }, [Contract]);
+  }, [Contract, reload]);
 
   console.log("reading account", account);
   return (

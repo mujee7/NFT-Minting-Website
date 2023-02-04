@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ModalContext } from "./ModalContext";
-
+import { toast } from "react-toastify";
 import {
   connectWallet,
   connectWalletLocaly,
@@ -26,7 +26,7 @@ const ContextProvider = ({ children }) => {
   const [Contract, setContract] = useState();
   const [Basic, setBasic] = useState();
   const [Count, setCount] = useState();
-
+  const [reload, setReload] = useState();
   const mintModalHandle = () => {
     setVisibility(!visibility);
   };
@@ -56,6 +56,7 @@ const ContextProvider = ({ children }) => {
       connectWalletLocaly();
     }
     setModalvisibility(!walletModalvisibility);
+    toast.success("Successfully connected");
   };
 
   const isWalletAlreadyConnected = async () => {
@@ -112,6 +113,9 @@ const ContextProvider = ({ children }) => {
         setCount,
         NextMint,
         setNextMint,
+        reload,
+        setReload
+        
       }}
     >
       {children}

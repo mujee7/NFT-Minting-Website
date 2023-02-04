@@ -15,6 +15,7 @@ const MintModalStyleWrapper = styled.div`
     z-index: 999;
     display: flex;
     justify-content: center;
+    
 
     &::before {
       position: absolute;
@@ -30,6 +31,7 @@ const MintModalStyleWrapper = styled.div`
   }
 
   .mint_modal_box {
+    
     position: relative;
     width: 440px;
     margin: auto;
@@ -40,7 +42,7 @@ const MintModalStyleWrapper = styled.div`
       position: absolute;
       left: 0;
       top: 0;
-      height: 100%;
+      height: 91%;
       width: 100%;
       background: #171c21;
       content: "";
@@ -48,7 +50,8 @@ const MintModalStyleWrapper = styled.div`
   }
 
   .mint_modal_content {
-    height: 100%;
+    
+    height: 93%;
     width: 100%;
     background: url(${modalBg});
     background-size: cover;
@@ -81,7 +84,7 @@ const MintModalStyleWrapper = styled.div`
       background: transparent;
       border: none;
       outline: none;
-      height: 45px;
+      height: 30px;
       width: 45px;
       position: absolute;
       right: 0px;
@@ -99,7 +102,7 @@ const MintModalStyleWrapper = styled.div`
       &:before {
         content: "";
         background: rgba(255, 255, 255, 0.1);
-        height: 150%;
+        height: 80%;
         width: 150%;
         position: absolute;
         right: -35px;
@@ -118,7 +121,7 @@ const MintModalStyleWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 56px;
+        height: 40px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
         h5 {
@@ -126,7 +129,7 @@ const MintModalStyleWrapper = styled.div`
           font-style: normal;
           font-weight: 600;
           font-size: 16px;
-          line-height: 19px;
+          line-height: 15px;
           text-align: right;
           color: #ffffff;
           margin: 0;
@@ -138,7 +141,7 @@ const MintModalStyleWrapper = styled.div`
           justify-content: space-between;
           max-width: 106px;
           width: 100%;
-          height: 100%;
+          height: 80%;
 
           button {
             border: none;
@@ -149,7 +152,7 @@ const MintModalStyleWrapper = styled.div`
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
-            line-height: 22px;
+            line-height: 18px;
             text-align: center;
             text-transform: uppercase;
             color: #ffffff;
@@ -161,7 +164,7 @@ const MintModalStyleWrapper = styled.div`
             border: none;
             border-left: 1px solid rgba(255, 255, 255, 0.1);
             border-right: 1px solid rgba(255, 255, 255, 0.1);
-            height: 100%;
+            height: 80%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -172,7 +175,7 @@ const MintModalStyleWrapper = styled.div`
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
-            line-height: 22px;
+            line-height: 18px;
             text-align: center;
             text-transform: uppercase;
             color: #ffffff;

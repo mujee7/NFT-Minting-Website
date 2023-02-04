@@ -29,7 +29,7 @@ const CharacterSliderWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
+    background: none;
   }
 `;
 

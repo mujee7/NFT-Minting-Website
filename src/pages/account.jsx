@@ -4,10 +4,10 @@ import Layout from "../common/layout";
 import Header from "../components/section/header/v1/Header";
 import PageHeader1 from "../common/pageHeader/v4/AccountHeader";
 import Account from "../components/section/collection/Account";
-
 import Footer from "../components/section/footer/v1";
 import MetamaskModal from "../common/modal/metamaskModal/MetamaskModal";
 import WalletModal from "../common/modal/walletModal/WalletModal";
+import { useEffect } from "react";
 
 const CollectionsPage = () => {
   const {
@@ -25,6 +25,9 @@ const CollectionsPage = () => {
       walletModalHandle();
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Layout>

@@ -27,7 +27,11 @@ const Banner = () => {
                     Mint now
                   </Button>
                 </Link>
-                <a href="https://faucet.polygon.technology/" target="_blank">
+                <a
+                  href="https://faucet.polygon.technology/"
+                  target="_blank"
+                  style={{ backgroundColor: "#1D9BF0" }}
+                >
                   <Button lg variant="outline">
                     GET FREE MATIC
                   </Button>
@@ -57,11 +61,7 @@ const Banner = () => {
                   </div>
                 </div>
                 <div className="bithu_v1_baner_right_img_bg">
-                  <img
-                    src={homeImageBG}
-                    style={{ width: "100%", height: "100%" }}
-                    alt=""
-                  />
+                  <img src={homeImageBG} alt="" />
                 </div>
                 <div className="bithu_v1_baner_right_img">
                   {/* <img src={characterThumb} alt="avater" /> */}

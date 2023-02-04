@@ -5,7 +5,7 @@ export const ContractAddress = "0xA5f18Fb04D4CD7F1dd75e680bC4a26418903FCD2";
 //old address 0xC26eDeab298725FD6295e92624435cf3886Ba966
 //polygon mumbai chainID
 const chainId = 80001;
-let web3 = new Web3(
+export const web3 = new Web3(
   "https://polygon-mumbai.g.alchemy.com/v2/MXTlA2FpRDF3lP5pMRFjWA8C-o-Khq8b"
 );
 

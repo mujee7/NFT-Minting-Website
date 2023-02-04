@@ -203,18 +203,26 @@ const Mint = () => {
                 <CountdownTimer {...counterSettings} />
               </div>
               <div className="content_footer">
-                <h5>Max 1 NFTs per wallet</h5>
+                <h5>Max 1 NFT per wallet</h5>
                 <h5>Price 0.0004 MATIC</h5>
                 <h5>Mint is live until INFINITY</h5>
               </div>
               <div className="mint_btns">
                 <a href="https://faucet.polygon.technology/" target="_blank">
-                  <Button lg variant="outline">
+                  <Button
+                    lg
+                    variant="outline"
+                    style={{ backgroundColor: "#854CE6" }}
+                  >
                     GET FREE MATIC
                   </Button>
                 </a>
                 <a href="https://twitter.com/mujeeee7" target="_blank">
-                  <Button lg variant="outline">
+                  <Button
+                    lg
+                    variant="outline"
+                    style={{ backgroundColor: "#1D9BF0" }}
+                  >
                     <img src={twitterIcon} alt="icon" />
                     join twitter
                   </Button>

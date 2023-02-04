@@ -7,9 +7,12 @@ import Mint from "../components/section/mint/v2/Mint";
 import MintNowModal from "../common/modal/mintNowModal";
 import WalletModal from "../common/modal/walletModal/WalletModal";
 import Footer from "../components/section/footer/v1";
+import { useEffect } from "react";
 const MintPageOne = () => {
   const { visibility, metamaskModal, walletModalvisibility } = useModal();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Layout>
@@ -22,7 +25,6 @@ const MintPageOne = () => {
         <Footer />
       </Layout>
     </>
-    
   );
 };
 

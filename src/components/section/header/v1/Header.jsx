@@ -197,6 +197,7 @@ const Header = () => {
                   sm
                   variant="hovered"
                   className="connect_btn"
+                  style={{ backgroundColor: "#36bc8b" }}
                   onClick={() => nav("/Account")}
                 >
                   <FaUserAstronaut />

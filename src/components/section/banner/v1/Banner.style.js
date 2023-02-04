@@ -101,7 +101,7 @@ const BannerV1Wrapper = styled.section`
     .bithu_v1_baner_right_img_sect {
       position: relative;
       width: 100%;
-      height: 550px;
+      height: 500px;
       display: flex;
       align-items: center;
       justify-content: center;

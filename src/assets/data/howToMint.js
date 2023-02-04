@@ -6,18 +6,23 @@ const data = [
     },
     {
         num: "2",
-        mintColor: "blue",
-        text: "Select Your Quantity"
+        mintColor: "orange",
+        text: "Get Some MATIC"
     },
     {
         num: "3",
-        mintColor: "yellow",
-        text: "Confiem the Transaction"
+        mintColor: "blue",
+        text: "Mint NFT"
     },
     {
         num: "4",
         mintColor: "red",
-        text: "Receive Your NFTs"
+        text: "Confiem the Transaction"
+    },
+    {
+        num: "5",
+        mintColor: "yellow",
+        text: "Receive Your NFT"
     },
 ]
 

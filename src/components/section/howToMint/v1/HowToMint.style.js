@@ -42,6 +42,9 @@ const HowToMintWrapper = styled.section`
             &.blue {
               -webkit-text-stroke: 1px rgba(88, 101, 242, 0.7);
             }
+            &.orange {
+              -webkit-text-stroke: 1px rgba(239,173,7,0.7);
+            }
             &.yellow {
               -webkit-text-stroke: 1px rgba(255, 230, 0, 0.7);
             }

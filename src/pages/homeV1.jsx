@@ -13,41 +13,40 @@ import WalletModal from "../common/modal/walletModal/WalletModal";
 import MetamaskModal from "../common/modal/metamask/MetamaskModal";
 import ConnectWallet from "../common/modal/metamask/ConnectWallet";
 import { useEffect } from "react";
-
-
+import { toast } from "react-toastify";
 
 const HomeV1 = () => {
-  const { visibility, walletModalvisibility, metamaskModalVisibility, connectWalletModal ,contractAddress,setContractAddress,WEB3,setWEB3,Contract, setContract,CreateContractInstance} = useModal();
- 
-  const something =async ()=>{
-    await CreateContractInstance();
-    
-    
-  }
+  const {
+    visibility,
+    walletModalvisibility,
+    metamaskModalVisibility,
+    connectWalletModal,
+    CreateContractInstance,
+  } = useModal();
 
-  
+  const something = async () => {
+    await CreateContractInstance();
+  };
+
   useEffect(() => {
-    something()
-    
-  },[]);
+    something();
+    toast.success("Welcome!");
+  }, []);
 
   return (
-
-    
     <Layout>
-    
-       <GlobalStyles />  
+      <GlobalStyles />
       {visibility && <MintNowModal />}
       {walletModalvisibility && <WalletModal />}
-      {metamaskModalVisibility && <MetamaskModal/> }
-      {connectWalletModal && <ConnectWallet/> }
+      {metamaskModalVisibility && <MetamaskModal />}
+      {connectWalletModal && <ConnectWallet />}
       <Header />
       <Banner />
-      
+
       <CharacterSlider />
       <HowToMint />
-      <About/>
-      
+      <About />
+
       <Footer />
     </Layout>
   );

@@ -3,11 +3,12 @@ import { useModal } from "../../../utils/ModalContext";
 import { FiX } from "react-icons/fi";
 import Button from "../../button";
 import MintModalStyleWrapper from "./MintNow.style";
-
-import hoverShape from "../../../assets/images/icon/hov_shape_L.svg";
+import { web3 } from "../../../config";
 
 import { useEffect } from "react";
 import { isMetaMaskInstalled } from "../../../config";
+import { toast } from "react-toastify";
+
 const MintNowModal = () => {
   const ref = useRef();
   const [message, setMessage] = useState("");
@@ -33,6 +34,7 @@ const MintNowModal = () => {
   //   from: account, // must match user's active address.
   //   data: Contract.methods._safeMint(account._address,Count).encodeABI(),
   // };
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   const mintNow = async () => {
     console.log(account);
     console.log(Count);
@@ -49,9 +51,38 @@ const MintNowModal = () => {
         params: [transactionParameters],
       });
       if (txHash) {
-        setNextMint("just call it again");
+        await delay(5000);
+        let pollInterval = 4;
+        let elapsedTime = 0;
+
+        while (elapsedTime < pollInterval) {
+          let receipt;
+          try {
+            receipt = await web3.eth.getTransactionReceipt(txHash);
+          } catch (err) {
+            console.log("error retrieving transaction receipt: " + err);
+          }
+          console.log("Print kr bhai", receipt);
+          if (receipt) {
+            if (receipt.status) {
+              console.log("txHash", txHash);
+              setNextMint(txHash);
+              toast.success("Successfully Minted");
+              console.log("txHash", receipt.status);
+              return receipt;
+            } else {
+              toast.warning("Transaction reverted");
+              return null;
+            }
+          } else {
+            await delay(5000);
+          }
+          elapsedTime += 2;
+        }
+        console.log("transaction failed");
       }
-    } catch {
+    } catch (err) {
+      console.log(err);
       console.log("Eror in sending transactions");
     }
   };
@@ -81,10 +112,13 @@ const MintNowModal = () => {
   }, [visibility]);
   return (
     <>
-      <MintModalStyleWrapper className="modal_overlay">
-        <div className="mint_modal_box" style={{ marginTop: "60px" }}>
+      <MintModalStyleWrapper
+        className="modal_overlay"
+        style={{ paddingTop: "20px" }}
+      >
+        <div className="mint_modal_box" style={{ marginTop: "75px" }}>
           <div className="mint_modal_content" ref={ref}>
-            <div className="modal_header">
+            <div className="modal_header" style={{ marginTop: "-30px" }}>
               <h2>{NFT.name}</h2>
               <button onClick={() => mintModalHandle()}>
                 <FiX />
@@ -112,35 +146,26 @@ const MintNowModal = () => {
                       *One quantity per wallet
                     </h5>
                   </li>
+                  <div className="modal_mint_btn">
+                    {account ? (
+                      <Button lg variant="mint" onClick={() => mintNow()}>
+                        Mint Now
+                      </Button>
+                    ) : (
+                      <Button
+                        lg
+                        variant=""
+                        onClick={() => {
+                          handleWalletConnect();
+                        }}
+                      >
+                        Connect Your Wallet
+                      </Button>
+                    )}
+                  </div>
                 </ul>
               </div>
               {message && <p>{message}</p>}
-              <div className="modal_mint_btn">
-                {account ? (
-                  <Button lg variant="mint" onClick={() => mintNow()}>
-                    Mint Now
-                  </Button>
-                ) : (
-                  <Button
-                    lg
-                    variant=""
-                    onClick={() => {
-                      handleWalletConnect();
-                    }}
-                  >
-                    Connect Your Wallet
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            <div className="modal_bottom_shape_wrap">
-              <span className="modal_bottom_shape shape_left">
-                <img src={hoverShape} alt="bithu nft hover shape" />
-              </span>
-              <span className="modal_bottom_shape shape_right">
-                <img src={hoverShape} alt="bithu nft hover shape" />
-              </span>
             </div>
           </div>
         </div>
