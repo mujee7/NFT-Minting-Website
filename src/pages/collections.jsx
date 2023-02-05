@@ -6,11 +6,11 @@ import PageHeader from "../common/pageHeader/v4/PageHeader";
 import Collection from "../components/section/collection";
 import { useEffect } from "react";
 import Footer from "../components/section/footer/v1";
-import MetamaskModal from "../common/modal/metamaskModal/MetamaskModal";
+import MetamaskModal from "../common/modal/metamask/MetamaskModal";
 import WalletModal from "../common/modal/walletModal/WalletModal";
 
 const CollectionsPage = () => {
-  const { walletModalvisibility, metamaskModal } = useModal();
+  const { walletModalvisibility, metamaskModal,metamaskModalVisibility } = useModal();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,6 +18,7 @@ const CollectionsPage = () => {
     <>
       <Layout>
         <GlobalStyles />
+        {metamaskModalVisibility && <MetamaskModal />}
         {metamaskModal && <MetamaskModal />}
         {walletModalvisibility && <WalletModal />}
         <Header />

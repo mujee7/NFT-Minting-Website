@@ -5,7 +5,7 @@ import Header from "../components/section/header/v1/Header";
 import PageHeader1 from "../common/pageHeader/v4/AccountHeader";
 import Account from "../components/section/collection/Account";
 import Footer from "../components/section/footer/v1";
-import MetamaskModal from "../common/modal/metamaskModal/MetamaskModal";
+import MetamaskModal from "../common/modal/metamask/MetamaskModal";
 import WalletModal from "../common/modal/walletModal/WalletModal";
 import { useEffect } from "react";
 
@@ -17,6 +17,7 @@ const CollectionsPage = () => {
     isMetaMaskInstalled,
     metamaskModalHandle,
     walletModalHandle,
+    metamaskModalVisibility
   } = useModal();
   const handleWalletConnect = async () => {
     if (!isMetaMaskInstalled()) {
@@ -33,6 +34,7 @@ const CollectionsPage = () => {
       <Layout>
         <GlobalStyles />
         {metamaskModal && <MetamaskModal />}
+        {metamaskModalVisibility && <MetamaskModal />}
         {walletModalvisibility && <WalletModal />}
         <Header />
         {account ? (

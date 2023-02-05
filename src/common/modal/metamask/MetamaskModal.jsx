@@ -3,9 +3,26 @@ import { FiX } from "react-icons/fi";
 import MetamaskModalStyle from "./Metamaskmodal.style";
 import hoverShape from "../../../assets/images/icon/hov_shape_L.svg";
 import metamaskIcon from "../../../assets/images/icon/MetaMask.svg";
+import { useEffect } from "react";
 
 const MetamaskModal = () => {
   const { metamaskModalHandle } = useModal();
+
+  useEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      // true for mobile device
+      console.log("mobile device");
+      document.getElementById("mobile").innerHTML =
+        "Open the website in Metamask app ";
+    } else {
+      // false for not mobile device
+      console.log("not mobile device");
+    }
+  }, []);
   return (
     <>
       <MetamaskModalStyle className="modal_overlay">
@@ -25,7 +42,7 @@ const MetamaskModal = () => {
                   rel="noreferrer"
                 >
                   <img src={metamaskIcon} alt="Meta-mask" />
-                  Please install metamask extension!
+                  <b id="mobile">Please install metamask extension!</b>
                 </a>
               </div>
             </div>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import mintLiveDownArrow from "../../../../assets/images/nft/mint_live_down_arrow.svg";
 import mintLiveText from "../../../../assets/images/nft/mint_live_text.png";
 import homeImageBG from "../../../../assets/images/nft/cpg/girl (4).png";
-import { useState } from "react";
+
 
 const Banner = () => {
   return (
@@ -16,7 +16,7 @@ const Banner = () => {
         <div className="row">
           <div className="col-lg-6">
             <div className="bithu_v1_baner_left">
-              <h2>Crazy Meta 🎯 NFT collections</h2>
+              <h2>CyberPunk Girl NFT collections</h2>
               <h3>
                 <span className="count"></span>{" "}
               </h3>
@@ -27,6 +27,7 @@ const Banner = () => {
                     Mint now
                   </Button>
                 </Link>
+                <br></br>
                 <a
                   href="https://faucet.polygon.technology/"
                   target="_blank"

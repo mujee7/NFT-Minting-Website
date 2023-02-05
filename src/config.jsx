@@ -15,7 +15,6 @@ export const isMetaMaskInstalled = () => {
   if (ethereum) {
     return true;
   }
-
   return false;
 };
 

@@ -113,10 +113,10 @@ const BannerV1Wrapper = styled.section`
         height: 100%;
         z-index: 0;
         img {
-          width: 100%;
-          height: 100%;
+          
         }
       }
+      
       .bithu_v1_baner_right_img {
         position: relative;
         z-index: 1;
@@ -206,6 +206,8 @@ const BannerV1Wrapper = styled.section`
         left: -40px;
       }
     }
+
+  
   }
   @media (max-width: 375px) {
     .bithu_v1_baner_left {

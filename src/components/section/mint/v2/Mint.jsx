@@ -217,6 +217,7 @@ const Mint = () => {
                     GET FREE MATIC
                   </Button>
                 </a>
+                <br></br>
                 <a href="https://twitter.com/mujeeee7" target="_blank">
                   <Button
                     lg
