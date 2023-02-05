@@ -1,3 +1,34 @@
+# NFT MINTING DAPP
+It is an NFT minting dapp that allow you to mint new NFTs as well as manage your NFTs and Transfer Your NFTs to others.
+
+It Includes
+
+1. Home Page (Which gives the brief overview of the website)
+2. Mint Page (Where You can Mint new NFTs)
+3. Collections Page (Where is all the Minted NFTs showcase)
+4. NFT page (Where you can see the data about the NFT and its owner)
+5. Account Page (Where you can manage your NFTs and transfer it to someone else)
+
+
+### Important To Note
+
+For your own deployment just change in the src/config.js file
+value of abi, web3, ContractAddress
+
+### Next chnage the IPFS LINK
+I imported NFT images from direct IPFS links so change the links in the files
+by Ctrl + Shift + F then type https://gateway it will give you the place where this link is used
+change it with your own IPFS link rember it is using a variable value too
+
+The above are the only changes to make
+
+I have also shared my NFT contract it fetches data according to the contract abi 
+so make sure you use tha same contract'
+
+### Deployed on
+
+https://cyberpunkgirl.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +99,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
