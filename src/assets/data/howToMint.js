@@ -17,7 +17,7 @@ const data = [
     {
         num: "4",
         mintColor: "red",
-        text: "Confiem the Transaction"
+        text: "Confirm the Transaction"
     },
     {
         num: "5",
